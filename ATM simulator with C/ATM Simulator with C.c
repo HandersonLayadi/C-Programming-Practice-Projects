@@ -6,6 +6,9 @@ int main(){
     int balance = 0;
     int amount;
     int choice;
+    int depoCount = 0;
+    int drawCount = 0;
+    int transCount = 0;
 
     // PIN System:
     int attempts = 0;
@@ -45,6 +48,8 @@ int main(){
                     balance += amount;
                     printf("New Balance Successfully Deposited, Master\n");
                     printf("Your new balance currently is %d NTD, Master", balance);
+                    depoCount++;
+                    transCount++;
                 }
                 else if(choice == 3){
                     printf("Enter an amount to withdraw, Master : ");
@@ -58,15 +63,22 @@ int main(){
                     balance -= amount;
                     printf("Amount Successfully Withdrawed, Master");
                     printf("Your new balance currently is %d NTD, Master", balance);
+                    drawCount++;
+                    transCount++;
 
                 }
                 else if (choice == 4){
+                    printf("\n===TRANSACTION REPORT===\n");
+                    printf("Deposit Count : %d\n", depoCount);
+                    printf("Withdraw Count : %d\n", drawCount);
+                    printf("Total Transactions : %d", transCount);
                 }
 
             }
             while(choice !=5);
-
+            printf ("Goodbye Master !");
             break;
+            
         }
         else {
             attempts++;
@@ -79,6 +91,5 @@ int main(){
             }
         }
     }
-    printf ("Goodbye Master !");
     return 0;
 }
